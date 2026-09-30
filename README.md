@@ -1,350 +1,126 @@
-# ✈️ TravelEase – Travel Booking System
+# TravelEase – Travel Booking System
 
-TravelEase is a full-stack web-based travel booking application designed to simplify the process of searching for travel options, viewing travel information, managing bookings, and handling user authentication.
+TravelEase is a web-based travel booking application developed as a full-stack project. It provides a simple interface for users to explore travel options and manage their bookings.
 
-The application follows a client-server architecture where the React frontend communicates with a Node.js/Express backend through REST APIs. The backend manages application logic, authentication, and communication with the MySQL database.
+The project is divided into two parts:
 
----
+* `client` – React frontend
+* `server` – Node.js and Express backend
 
-## 📌 Table of Contents
-
-* [Project Overview](#project-overview)
-* [Objectives](#objectives)
-* [Key Features](#key-features)
-* [System Architecture](#system-architecture)
-* [Software Requirements Specification](#software-requirements-specification)
-* [Functional Requirements](#functional-requirements)
-* [Non-Functional Requirements](#non-functional-requirements)
-* [Technology Stack](#technology-stack)
-* [Project Structure](#project-structure)
-* [Prerequisites](#prerequisites)
-* [Installation](#installation)
-* [Database Configuration](#database-configuration)
-* [Environment Variables](#environment-variables)
-* [Running the Application](#running-the-application)
-* [Application Workflow](#application-workflow)
-* [Authentication and Security](#authentication-and-security)
-* [Testing](#testing)
-* [Troubleshooting](#troubleshooting)
-* [Future Enhancements](#future-enhancements)
-* [Team Contribution](#team-contribution)
-* [Conclusion](#conclusion)
+The backend uses **MySQL** for storing application data.
 
 ---
 
-# 📖 Project Overview
+## Technologies Used
 
-TravelEase is a web-based travel booking system that provides users with a convenient platform to interact with travel-related services through a centralized application.
+### Frontend
 
-The system consists of two major parts:
+* React.js
+* JavaScript
+* Bootstrap
+* React Router
+* Chart.js
 
-* **Frontend:** React-based user interface
-* **Backend:** Node.js and Express.js REST API server
+### Backend
 
-The backend communicates with a **MySQL database** to store and retrieve application data.
+* Node.js
+* Express.js
+* REST APIs
+* JWT Authentication
+* bcryptjs
 
-The frontend is configured to communicate with the backend through:
+### Database
 
-```text
-http://localhost:5000
-```
+* MySQL
 
----
-
-# 🎯 Objectives
-
-The main objectives of TravelEase are:
-
-1. To provide a simple and user-friendly travel booking interface.
-2. To allow users to interact with travel and booking information digitally.
-3. To provide user authentication and secure access.
-4. To store application data in a structured MySQL database.
-5. To provide communication between frontend and backend using REST APIs.
-6. To reduce manual handling of travel booking information.
-7. To provide a centralized platform for managing travel-related operations.
-
----
-
-# ⭐ Key Features
-
-* User registration and login
-* User authentication using JWT
-* Password hashing using bcrypt
-* Travel-related information management
-* Booking functionality
-* REST API-based communication
-* MySQL database integration
-* Responsive frontend interface
-* Navigation using React Router
-* Data visualization using Chart.js
-* Backend API support
-* Cross-Origin Resource Sharing (CORS)
-
----
-
-# 🏗️ System Architecture
-
-TravelEase follows a three-layer client-server architecture:
-
-```text
-                ┌──────────────────────┐
-                │       USER           │
-                └──────────┬───────────┘
-                           │
-                           ▼
-                ┌──────────────────────┐
-                │   React Frontend     │
-                │  HTML/CSS/JavaScript │
-                └──────────┬───────────┘
-                           │
-                     REST API Requests
-                           │
-                           ▼
-                ┌──────────────────────┐
-                │ Node.js + Express.js │
-                │      Backend         │
-                └──────────┬───────────┘
-                           │
-                    SQL Queries
-                           │
-                           ▼
-                ┌──────────────────────┐
-                │   MySQL Database     │
-                └──────────────────────┘
-```
-
-### Data Flow
-
-```text
-User
- ↓
-React Frontend
- ↓
-Express REST API
- ↓
-Node.js Backend
- ↓
-MySQL Database
- ↓
-Backend Response
- ↓
-React Frontend
- ↓
-User
-```
-
----
-
-# 📋 Software Requirements Specification
-
-## 1. Introduction
-
-### 1.1 Purpose
-
-The purpose of this system is to provide an online travel booking platform that allows users to interact with travel services and manage booking-related activities digitally.
-
-### 1.2 Scope
-
-The system covers:
-
-* User registration
-* User login
-* Authentication
-* Travel information
-* Booking operations
-* Database management
-* Backend API communication
-* User interface and navigation
-
-### 1.3 Intended Users
-
-The primary users of the system are:
-
-* Customers/Travelers
-* System administrators or authorized users
-
----
-
-# ⚙️ Functional Requirements
-
-## FR1 – User Registration
-
-The system shall allow new users to create an account by providing the required registration details.
-
-## FR2 – User Login
-
-The system shall allow registered users to log in using their credentials.
-
-## FR3 – Authentication
-
-The system shall authenticate users and provide a JWT token after successful authentication.
-
-## FR4 – Travel Information
-
-The system shall allow users to access relevant travel information through the application.
-
-## FR5 – Booking
-
-The system shall allow users to provide the required information and perform travel booking operations.
-
-## FR6 – Database Operations
-
-The system shall store and retrieve application information from the MySQL database.
-
-## FR7 – API Communication
-
-The frontend shall communicate with the backend through REST APIs.
-
-## FR8 – Navigation
-
-The application shall provide navigation between different pages using React Router.
-
----
-
-# 🔒 Non-Functional Requirements
-
-### Performance
-
-The system should respond to user requests within a reasonable time.
-
-### Security
-
-User passwords should not be stored as plain text. Authentication and password hashing mechanisms are implemented using JWT and bcrypt.
-
-### Usability
-
-The interface should be simple and easy to navigate.
-
-### Reliability
-
-The system should handle valid user requests and database operations consistently.
-
-### Maintainability
-
-The project is divided into separate frontend and backend components to make development and maintenance easier.
-
-### Scalability
-
-The client-server architecture allows additional modules and features to be added in the future.
-
----
-
-# 🛠️ Technology Stack
-
-## Frontend
-
-| Technology       | Purpose                            |
-| ---------------- | ---------------------------------- |
-| React.js         | Building the user interface        |
-| JavaScript       | Application logic and interactions |
-| Bootstrap        | UI styling and responsive design   |
-| React Router     | Page navigation                    |
-| Chart.js         | Data visualization                 |
-| React Chart.js 2 | Integration of Chart.js with React |
-
-The current frontend dependencies include React 18, Bootstrap 5.3, React Router 6, Chart.js and React Chart.js 2.
-
-## Backend
-
-| Technology | Purpose                                    |
-| ---------- | ------------------------------------------ |
-| Node.js    | Runtime environment for backend JavaScript |
-| Express.js | Backend framework and REST API             |
-| mysql2     | Communication between Node.js and MySQL    |
-| JWT        | User authentication                        |
-| bcryptjs   | Password hashing                           |
-| CORS       | Cross-origin communication                 |
-| dotenv     | Environment configuration                  |
-
-These backend dependencies are present in the project's current `server/package.json`.
-
-## Development Tools
+### Tools
 
 * Visual Studio Code
-* Git
-* GitHub
-* MySQL
+* Git & GitHub
 * Postman
-* Web Browser
+* MySQL Workbench
 
 ---
 
-# 📁 Project Structure
+# Prerequisites
 
-```text
-TravelEase-travel-booking-system/
-│
-├── client/
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   └── ...
-│
-├── server/
-│   ├── server.js
-│   ├── package.json
-│   └── ...
-│
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── README.md
-```
+Before running TravelEase, make sure the following software is installed on your system.
 
-The repository is organized into separate `client` and `server` directories.
+### 1. Node.js and npm
 
----
+Node.js is required to run the backend and install the project dependencies.
 
-# 💻 Prerequisites
+Download and install Node.js from:
 
-Before running TravelEase, install the following software:
+https://nodejs.org/
 
-### 1. Node.js
-
-Install Node.js from the official website.
-
-Check installation:
+After installation, open Command Prompt/Terminal and check:
 
 ```bash
-node --version
-npm --version
+node -v
+npm -v
 ```
+
+If both commands show a version number, Node.js is installed correctly.
+
+---
 
 ### 2. MySQL
 
-Install MySQL Server and MySQL Workbench if required.
+TravelEase uses **MySQL** as its database.
 
-Check that the MySQL server is running before starting the backend.
+Install:
+
+* MySQL Server
+* MySQL Workbench (recommended)
+
+Make sure the MySQL server is running before starting the application.
+
+You can check the MySQL connection through MySQL Workbench.
+
+---
 
 ### 3. Git
 
-Git is recommended for cloning the repository.
+Git is recommended for downloading the project from GitHub.
 
-Check installation:
+Check whether Git is installed:
 
 ```bash
 git --version
 ```
 
-### 4. Code Editor
+If it is not installed, download it from:
 
-Visual Studio Code is recommended for development.
-
-### 5. Web Browser
-
-A modern browser such as Chrome, Edge or Firefox is recommended.
+https://git-scm.com/
 
 ---
 
-# 📥 Installation
+### 4. Code Editor
 
-## Step 1 – Clone the Repository
+We recommend **Visual Studio Code** for opening and working with the project.
+
+---
+
+### 5. Web Browser
+
+Use a modern browser such as:
+
+* Google Chrome
+* Microsoft Edge
+* Mozilla Firefox
+
+---
+
+# How to Download the Project
+
+Clone the repository using:
 
 ```bash
 git clone https://github.com/donnyravi-alt/TravelEase-travel-booking-system.git
 ```
 
-Move into the project directory:
+Then enter the project folder:
 
 ```bash
 cd TravelEase-travel-booking-system
@@ -352,57 +128,56 @@ cd TravelEase-travel-booking-system
 
 ---
 
-# 📦 Step 2 – Install Backend Dependencies
+# Project Setup
 
-Open a terminal and run:
+The frontend and backend have separate dependencies, so they need to be installed separately.
+
+## Step 1 – Install Backend Dependencies
+
+Open a terminal in the project folder and run:
 
 ```bash
 cd server
 npm install
 ```
 
-This installs the backend dependencies specified in `server/package.json`.
+This installs all the packages required by the backend.
 
 ---
 
-# 📦 Step 3 – Install Frontend Dependencies
+## Step 2 – Install Frontend Dependencies
 
-Open another terminal:
+Open another terminal and run:
 
 ```bash
 cd client
 npm install
 ```
 
-This installs the React frontend dependencies.
+This installs the packages required by the React frontend.
 
 ---
 
-# 🗄️ Database Configuration
+# Database Setup
 
-TravelEase uses **MySQL** as its relational database.
+TravelEase uses MySQL.
 
-Before starting the backend:
+Before running the backend:
 
-1. Install MySQL.
-2. Start the MySQL server.
-3. Create the required database.
-4. Create/configure the required tables.
-5. Configure the database credentials in the backend environment configuration.
+1. Start MySQL Server.
+2. Open MySQL Workbench.
+3. Create the database required by the project.
+4. Make sure the database connection details used by the backend are correct.
 
-Example:
+The backend uses `mysql2` to connect Node.js with MySQL.
 
-```sql
-CREATE DATABASE travelease;
-```
-
-> Use the database name, username, password and other values expected by the backend configuration in your project. Do not commit actual passwords or secret keys to GitHub.
+> Make sure your MySQL username, password and database name match the configuration used by the project.
 
 ---
 
-# 🔐 Environment Variables
+# Environment Configuration
 
-Create an environment configuration file in the backend if required by the project.
+If the project requires environment variables, create a `.env` file inside the `server` folder.
 
 Example:
 
@@ -410,37 +185,214 @@ Example:
 PORT=5000
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=travelease
+DB_PASSWORD=your_mysql_password
+DB_NAME=your_database_name
 JWT_SECRET=your_secret_key
 ```
 
-### Important
+Replace the example values with your own MySQL details.
 
-Do not upload real database passwords, JWT secrets or other sensitive credentials to GitHub.
+**Do not upload your actual `.env` file or passwords to GitHub.**
 
-Add environment files to `.gitignore`:
+---
 
-```text
-.env
+# How to Run the Application
+
+The application has **two parts that need to run at the same time**:
+
+1. Backend server
+2. React frontend
+
+You need **two terminals**.
+
+---
+
+## Terminal 1 – Start the Backend
+
+Open the first terminal:
+
+```bash
+cd TravelEase-travel-booking-system
+cd server
 ```
 
+Then run:
+
+```bash
+npm start
+```
+
+The backend starts using Node.js.
+
+The server runs on:
+
+```text
+http://localhost:5000
+```
+
+Keep this terminal running.
+
 ---
 
-# ▶️ Running the Application
+## Terminal 2 – Start the Frontend
 
-TravelEase consists of two applications:
+Open a **new terminal**.
 
-* React frontend
-* Node.js/Express backend
+Go to the project folder:
 
-Both should be running at the same time.
+```bash
+cd TravelEase-travel-booking-system
+cd client
+```
+
+Run:
+
+```bash
+npm start
+```
+
+The React application will start and open in your browser.
+
+Usually it will be available at:
+
+```text
+http://localhost:3000
+```
+
+If it does not open automatically, open the above address manually in your browser.
 
 ---
 
-## Step 1 – Start Backend
+# Quick Run Guide
 
-Open Terminal 1:
+After everything is installed, you only need these commands:
+
+### Terminal 1
+
+```bash
+cd server
+npm start
+```
+
+### Terminal 2
+
+```bash
+cd client
+npm start
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+That's it.
+
+---
+
+# Application Flow
+
+The basic flow of the application is:
+
+```text
+User
+  ↓
+React Frontend
+  ↓
+REST API
+  ↓
+Node.js + Express
+  ↓
+MySQL Database
+  ↓
+Response
+  ↓
+React Frontend
+```
+
+The frontend sends requests to the backend. The backend processes the request and communicates with MySQL when database information is required.
+
+---
+
+# Main Features
+
+* User registration and login
+* User authentication
+* Travel information
+* Booking functionality
+* MySQL database
+* REST API communication
+* Responsive user interface
+* Navigation between application pages
+* Authentication using JWT
+* Password hashing using bcryptjs
+
+---
+
+# SRS – Short Overview
+
+## 1. Purpose
+
+The main purpose of TravelEase is to provide a simple online platform for travel-related booking operations.
+
+## 2. Users
+
+The system is mainly intended for users who want to search for travel options and make bookings through the application.
+
+## 3. Functional Requirements
+
+The application should allow users to:
+
+* Register an account
+* Login securely
+* View travel information
+* Make bookings
+* Access their booking-related information
+
+## 4. Non-Functional Requirements
+
+The application should be:
+
+* Easy to use
+* Secure
+* Reliable
+* Responsive
+* Easy to maintain
+
+## 5. System Requirements
+
+### Software
+
+* Node.js
+* npm
+* MySQL
+* Git
+* VS Code
+* Web browser
+
+### Hardware
+
+A normal computer capable of running Node.js, MySQL and a modern web browser is sufficient.
+
+---
+
+# Troubleshooting
+
+### `npm` is not recognized
+
+Make sure Node.js is installed correctly and restart the terminal.
+
+Check:
+
+```bash
+node -v
+npm -v
+```
+
+### Backend is not starting
+
+Try:
 
 ```bash
 cd server
@@ -448,25 +400,11 @@ npm install
 npm start
 ```
 
-The backend runs using:
+Also make sure MySQL is running.
 
-```bash
-node server.js
-```
+### Frontend is not starting
 
-The project's backend `package.json` defines `npm start` as `node server.js`.
-
-The backend is expected to run on:
-
-```text
-http://localhost:5000
-```
-
----
-
-## Step 2 – Start Frontend
-
-Open Terminal 2:
+Try:
 
 ```bash
 cd client
@@ -474,328 +412,41 @@ npm install
 npm start
 ```
 
-The React development server is started using:
-
-```text
-react-scripts start
-```
-
-The current frontend configuration also uses:
-
-```text
-http://localhost:5000
-```
-
-as its backend proxy.
-
-The frontend can normally be accessed through:
-
-```text
-http://localhost:3000
-```
-
----
-
-# 🔄 Application Workflow
-
-The basic workflow is:
-
-```text
-1. User opens TravelEase
-          ↓
-2. React loads the frontend
-          ↓
-3. User registers/logs in
-          ↓
-4. Frontend sends request to backend API
-          ↓
-5. Node.js + Express processes request
-          ↓
-6. Backend communicates with MySQL
-          ↓
-7. Database returns required information
-          ↓
-8. Backend sends response
-          ↓
-9. React displays the result
-          ↓
-10. User performs travel/booking operations
-```
-
----
-
-# 🔐 Authentication and Security
-
-TravelEase uses several mechanisms for handling authentication and application security.
-
-### JWT Authentication
-
-JSON Web Tokens are used for authentication.
-
-General flow:
-
-```text
-Login
- ↓
-Credentials sent to backend
- ↓
-Credentials verified
- ↓
-JWT generated
- ↓
-Token used for authenticated requests
-```
-
-### Password Hashing
-
-Passwords are handled using `bcryptjs` rather than being stored directly as plain-text passwords.
-
-### Environment Configuration
-
-`dotenv` is included in the backend to support environment-based configuration.
-
-### CORS
-
-The backend uses CORS to manage cross-origin communication between the frontend and backend.
-
----
-
-# 🧪 Testing
-
-The application can be tested at multiple levels.
-
-## Frontend Testing
+### Database connection error
 
 Check:
 
-* Page navigation
-* Form validation
-* User interface
-* Booking flow
-* Login and registration
-* Display of backend data
+* MySQL Server is running
+* Database name is correct
+* MySQL username is correct
+* MySQL password is correct
+* Database configuration is correct
 
-## Backend Testing
+### Frontend cannot connect to backend
 
-Use Postman to test REST APIs.
-
-Example workflow:
+Make sure both terminals are running:
 
 ```text
-Postman
-   ↓
-Send API Request
-   ↓
-Express Server
-   ↓
-Backend Logic
-   ↓
-MySQL
-   ↓
-API Response
-```
-
-Check:
-
-* HTTP status codes
-* Response data
-* Authentication
-* Invalid input handling
-* Database operations
-
----
-
-# 🐛 Troubleshooting
-
-## Problem: `npm` command not found
-
-Install Node.js and restart the terminal.
-
-Check:
-
-```bash
-node --version
-npm --version
+Frontend → http://localhost:3000
+Backend  → http://localhost:5000
 ```
 
 ---
 
-## Problem: Backend does not start
+# Team
 
-Check:
-
-```bash
-cd server
-npm install
-npm start
-```
-
-Also check whether port `5000` is already being used.
+TravelEase was developed as a team project. The work was divided across frontend development, booking functionality, backend development, database/authentication, testing and documentation.
 
 ---
 
-## Problem: Frontend cannot communicate with backend
+# Repository
 
-Make sure both servers are running:
+GitHub:
 
-```text
-Frontend → localhost:3000
-Backend  → localhost:5000
-```
-
-Also verify the frontend proxy configuration.
-
----
-
-## Problem: Database connection error
-
-Check:
-
-* MySQL server is running.
-* Database exists.
-* Database username is correct.
-* Database password is correct.
-* Database name is correct.
-* Environment configuration is correct.
-
----
-
-## Problem: Login/registration is not working
-
-Check:
-
-1. Backend server is running.
-2. MySQL server is running.
-3. Required database tables exist.
-4. API endpoint is accessible.
-5. Authentication configuration is correct.
-
----
-
-# 🚀 Future Enhancements
-
-Possible future improvements include:
-
-* Online payment gateway integration
-* Email/SMS booking confirmation
-* Real-time travel availability
-* Advanced search and filtering
-* User profile management
-* Booking cancellation and refund management
-* Admin dashboard
-* Travel recommendations
-* Cloud deployment
-* Mobile application
-* Improved security and validation
-
----
-
-# 👥 Team Contribution
-
-The project can be divided among five team members as follows:
-
-### Member 1 – Frontend Development
-
-* React UI development
-* Page design
-* Navigation
-* User interface components
-
-### Member 2 – Booking Module
-
-* Booking interface
-* Booking workflow
-* Frontend-backend integration for booking operations
-
-### Member 3 – Backend Development
-
-* Node.js server
-* Express.js APIs
-* Server-side logic
-* API integration
-
-### Member 4 – Database & Authentication
-
-* MySQL database integration
-* User data management
-* JWT authentication
-* Password hashing using bcrypt
-
-### Member 5 – Testing & Integration
-
-* API testing
-* Frontend-backend integration
-* Bug fixing
-* Documentation
-* Git/GitHub project management
-
----
-
-# 📌 Key Concept
-
-The key concept of TravelEase is to provide a centralized web-based travel booking system.
-
-The application connects the user interface, backend services and database:
-
-```text
-Frontend
-React.js
-    ↓
-REST APIs
-    ↓
-Node.js + Express.js
-    ↓
-MySQL
-```
-
-This architecture separates the presentation layer, application logic and data layer, making the system easier to maintain and extend.
-
----
-
-# 📄 SRS Summary
-
-| Requirement       | Description                                         |
-| ----------------- | --------------------------------------------------- |
-| User Registration | Allows users to create an account                   |
-| User Login        | Authenticates registered users                      |
-| Authentication    | Uses JWT-based authentication                       |
-| Password Security | Uses bcrypt password hashing                        |
-| Travel Management | Handles travel-related information                  |
-| Booking           | Supports travel booking operations                  |
-| Database          | Stores application data in MySQL                    |
-| API               | Provides communication between frontend and backend |
-| UI                | Provides a React-based interface                    |
-| Navigation        | Uses React Router                                   |
-| Visualization     | Uses Chart.js where applicable                      |
-
----
-
-# 📜 License
-
-This project was developed as an academic project for educational purposes.
-
----
-
-# 👨‍💻 Project Repository
-
-**GitHub:**
 https://github.com/donnyravi-alt/TravelEase-travel-booking-system
 
 ---
 
-# 🙌 Conclusion
+## Note
 
-TravelEase demonstrates the development of a full-stack travel booking application using modern web technologies. The separation of frontend, backend and database components provides a structured approach to developing, testing and maintaining the application.
-
-The project demonstrates concepts including:
-
-* Full-stack web development
-* REST APIs
-* Client-server architecture
-* Database management
-* Authentication
-* Password security
-* Frontend routing
-* API testing
-* Version control
-* Team-based development
+This project was developed as part of an academic project to demonstrate full-stack web development, database integration, REST APIs and authentication.
