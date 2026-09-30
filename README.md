@@ -450,3 +450,36 @@ https://github.com/donnyravi-alt/TravelEase-travel-booking-system
 ## Note
 
 This project was developed as part of an academic project to demonstrate full-stack web development, database integration, REST APIs and authentication.
+
+---
+## Output
+
+# 📸 Application Screenshots
+
+Here are some screenshots of the TravelEase application.
+
+## Home Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/16a191e1-32df-46fa-929a-7a83b8695799" />
+
+
+## Login Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b5c71d84-074f-4cf9-9a72-31eff85cf979" />
+
+
+## Registration Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ecc054ef-c8c9-442e-923b-f40364ca2b67" />
+
+
+## Travel Search
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ef95872f-1d0d-4609-b5b6-a1b47f5308d9" />
+
+
+## Booking Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7dfd1205-4050-4424-bbfa-54008865d48e" />
+
+
+
